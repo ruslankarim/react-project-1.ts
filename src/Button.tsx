@@ -1,20 +1,14 @@
-import React, { DetailedHTMLProps, ButtonHTMLAttributes } from "react";
+import React, {ButtonHTMLAttributes, PropsWithChildren} from "react";
 
-type Props = {
-  children?: React.ReactNode;
-  type?: DetailedHTMLProps<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  >;
-  disabled?: HTMLButtonElement;
-};
-
-export default class Button extends React.Component<Props> {
-  render() {
-    return (
-      <button type={this.props.type} {...this.props.disabled}>
-        {this.props.children}
-      </button>
-    );
-  }
+type ButtonProps = {
+  type?: ButtonHTMLAttributes<HTMLButtonElement>["type"]
+  disabled?: ButtonHTMLAttributes<HTMLButtonElement>["disabled"]
 }
+
+const Button: React.FC<PropsWithChildren<ButtonProps>> = ({type, disabled, children}) => {
+  return (
+    <button className="ui-button" type={type} disabled={disabled}>{children}</button>
+  )
+}
+
+export default Button
