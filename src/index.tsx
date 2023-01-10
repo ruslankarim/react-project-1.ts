@@ -6,7 +6,7 @@ import Container from "./Container";
 import Link from "./Link";
 import Input from "./Input";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
     <Container>
