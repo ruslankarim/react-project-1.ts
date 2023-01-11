@@ -1,12 +1,15 @@
 import React, { PropsWithChildren } from 'react'
+import clsx from "clsx";
 
 type LinkProps = {
-    href: string
+    href?: string
+    className?: string
 }
 
-const Link: React.FC<PropsWithChildren<LinkProps>> = ({ href }) => {
+const Link: React.FC<PropsWithChildren<LinkProps>> = ({ href, className, ...rest}) => {
+
     return (
-        <a className="ui-link" href={href}>{href}</a>
+        <a className={clsx(className, "ui-link")} href={href} {...rest}>{href}</a>
     )
 }
 
